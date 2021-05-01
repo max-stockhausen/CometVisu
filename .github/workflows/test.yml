@@ -6,13 +6,14 @@ env:
 jobs:
 
   deploy-docker:
-    name: "[DEPLOY] - Deploy Docker container and Sentry release"
+    name: "Checkout test"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          submodules: recursive
       - run: git branch --contains "v0.12.0-dev22"
       - run: git branch --contains "v0.12.0-dev22" | wc -l
+      - run: git branch
+      - run: git pull -all
       - run: git branch
